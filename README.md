@@ -6,8 +6,10 @@ The main objective of this project is to improve practical knowledge in consumin
 
 ### Final Result: 
 
-![final_result]()
+![final_result](/images/final_result1.png)
 
 --- 
 
-![aviso_result]()
+![aviso_result](/images/final_result2.png)
+
+
