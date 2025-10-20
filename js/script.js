@@ -1,4 +1,5 @@
 
+var usersHistory = [];
 
 function search() {
     $("#error").html(" ");
@@ -10,6 +11,11 @@ function search() {
     $.getJSON(userAPI, (user) => {
 
         showUser(user);
+
+        if (isNew(user)) {
+            save(user);
+            showUsersHistory(user);
+        }
 
     }).fail(() => {
 
@@ -48,4 +54,18 @@ function showMessageError(msg) {
 
 function cleanError() {
     $("#userData").html(" ");
+};
+
+function showUsersHistory(user) {
+    $("#history").append(`<div class="col"> <img class="rounded shadow mt-2" width="100" height="110"
+                            src=${user.avatar_url} id="avatar_url">
+                    </div>`)
+};
+
+function isNew(user) {
+    return usersHistory.filter((aUser) => aUser.login === user.login).length === 0;
+}
+
+function save(user) {
+    usersHistory.push(user);
 }
